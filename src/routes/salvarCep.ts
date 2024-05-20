@@ -1,0 +1,35 @@
+import Router from 'express'
+import knex from '../database/knex'
+import AppError from '../utils/AppError';
+
+const router = Router();
+
+router.post("/", async (req, res) => {
+    const objSalvar = req.body;
+
+    // if (!objSalvar?.senha) {
+
+    //     throw new AppError("Senha Obrigatoria")
+    // }
+
+    // Promise - async
+    const id_usuario = await knex('salvarcep').insert(objSalvar)
+
+    const usuarios = await knex('salvarcep')
+        .where({ id: id_usuario[0] })
+
+    res.json({ salvarcep: usuarios })
+})
+
+router.get("/", (req, res) => {
+    knex('salvarcep').then((resposta) => {
+
+
+        res.json({ salvarcep: resposta })
+    })
+
+
+})
+
+
+export default router
