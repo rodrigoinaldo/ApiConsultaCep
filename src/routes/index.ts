@@ -5,7 +5,7 @@ import salvarCep from './salvarCep'
 
 const routes = Router()
 
-routes.use('/salvarCep', salvarCep)
+routes.use('/salvarcep', salvarCep)
 routes.use('/usuarios', usuario)
 
 export default routes

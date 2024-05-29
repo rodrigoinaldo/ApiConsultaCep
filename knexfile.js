@@ -6,8 +6,8 @@ module.exports = {
     connection: {
       host: 'localhost',
       user: 'root',
-      password: '', 
-      database: 'sapatos' 
+      password: '',
+      database: 'vitrine'
     },
     pool: {
       min: 2,
